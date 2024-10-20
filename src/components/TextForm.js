@@ -1,6 +1,19 @@
 import React, { useState } from 'react'
 
 export default function TextForm(props) {
+    const handelclearclick = ()=>{
+        let newText = ""
+        setText(newText)
+    }
+    const handeltitlecaseclick = ()=>{
+        let newText = text.charAt(0).toUpperCase() + text.substring(1).toLowerCase()
+          
+          setText(newText)
+    }
+    const handelcapcclick =()=>{
+        let newText = text.toLowerCase().replace(/^.|\s\S/g, function(a) { return a.toUpperCase(); });
+        setText(newText)
+    }
     const handeldwclick = ()=>{
         let newText = text.toLocaleLowerCase();
         setText(newText)
@@ -24,6 +37,9 @@ export default function TextForm(props) {
             </div>
             <button className="btn btn-primary mx-3 " onClick={handelUPclick}>CONVERT TO UPPERCASE</button>
             <button className="btn btn-primary mx-3" onClick={handeldwclick}>Convert to lowercase</button>
+            <button className="btn btn-primary mx-3" onClick={handelcapcclick}>Capitalized Case</button>
+            <button className="btn btn-primary mx-3" onClick={handeltitlecaseclick}>Title Case</button>
+            <button className="btn btn-danger mx-3" onClick={handelclearclick}>Clear</button>
         </div>
         <div className="container my-4">
             <h1>Your text summary </h1>
