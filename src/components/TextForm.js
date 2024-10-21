@@ -4,6 +4,7 @@ export default function TextForm(props) {
     const handelclearclick = () => {
         let newText = ""
         setText(newText)
+        props.showAlert("Text is cleared","danger")
     }
     const handeltitlecaseclick = () => {
         let newText = text.charAt(0).toUpperCase() + text.substring(1).toLowerCase()
